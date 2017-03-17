@@ -119,4 +119,8 @@ class TestBoard < Minitest::Test
 		assert_equal(true, board.valid_choice?(choice))
 	end
 
+	def test_if_player_1_changes_to_player_2
+		current_player = player_1
+		assert_equal(current_player==player_2,changed_player(current_player))
+	end
 end
