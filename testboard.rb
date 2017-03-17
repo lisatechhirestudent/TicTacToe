@@ -113,8 +113,10 @@ class TestBoard < Minitest::Test
 		assert_equal(false, board.valid_choice?(choice))
 	end
 
-	def test_that_entry_0_returns_false
+	def test_that_entry_0_returns_true
 		board = Board.new
 		choice = 0
-		assert_equal(false, board.valid_choice?(choice))
+		assert_equal(true, board.valid_choice?(choice))
+	end
+
 end
