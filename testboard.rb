@@ -85,4 +85,11 @@ class TestBoard < Minitest::Test
 		marker = "x"
 		assert_equal(true, board.board_win?(marker))
 	end
+
+	def test_multiple_win_returns_true
+		board = Board.new
+		board.ttt_board = ["x","x","x","x","","","x","",""]
+		marker = "x"
+		assert_equal(true, board.board_win?(marker))
+	end
 end
