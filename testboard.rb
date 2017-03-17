@@ -74,7 +74,7 @@ class TestBoard < Minitest::Test
 
 	def test_non_win_for_3_consecutive_positions_returns_false
 		board = Board.new
-		board.ttt_board = ["x","x","x","","","","","",""]
+		board.ttt_board = ["","x","x","x","","","","",""]
 		marker = "x"
 		assert_equal(false,board.board_win?(marker))
 	end
