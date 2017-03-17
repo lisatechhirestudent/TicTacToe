@@ -97,6 +97,20 @@ class TestBoard < Minitest::Test
 		board = Board.new
 		board.ttt_board = ["x","x","x","x","x","x","x","x"]
 		marker = "x"
-		assert_equal(true, )board.board_win?(marker))
+		assert_equal(true, board.full_board?())
 	end
+
+	def test_dual_win_for_x_and_o_returns_true
+		board = Board.new
+		board.ttt_board = ["x","x","x","o","o","o","","",""]
+		marker = "x"
+		assert_equal(true, board.board_win?(marker))
+	end
+
+	def test_that_entry_32_returns_false
+		board = Board.new
+		board.choice = 32
+		assert_equal(false, board.valid_choice?(board.choice))
+	end
+
 end
