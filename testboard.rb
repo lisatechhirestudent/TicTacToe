@@ -109,8 +109,12 @@ class TestBoard < Minitest::Test
 
 	def test_that_entry_32_returns_false
 		board = Board.new
-		board.choice = 32
-		assert_equal(false, board.valid_choice?(board.choice))
+		choice = 32
+		assert_equal(false, board.valid_choice?(choice))
 	end
 
+	def test_that_entry_0_returns_false
+		board = Board.new
+		choice = 0
+		assert_equal(false, board.valid_choice?(choice))
 end

@@ -6,7 +6,7 @@ class Board
 	end
 
 	def update_board(position,marker)
-		@ttt_board[position] == marker
+		@ttt_board[position] = marker
 	end
 
 	def open_space?(position)
@@ -20,6 +20,7 @@ class Board
 		if choice > 8
 			false
 		else true
+		end
 	end
 
 	def board_win?(marker)
