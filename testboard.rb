@@ -92,4 +92,11 @@ class TestBoard < Minitest::Test
 		marker = "x"
 		assert_equal(true, board.board_win?(marker))
 	end
+
+	def test_non_win_with_full_board_returns_true
+		board = Board.new
+		board.ttt_board = ["x","x","x","x","x","x","x","x"]
+		marker = "x"
+		assert_equal(true, )board.board_win?(marker))
+	end
 end
