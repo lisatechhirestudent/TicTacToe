@@ -41,7 +41,18 @@ class Console
 			@current_player = player_1
 		end
 	end
-	#def game_over?(marker)
-		#board.board_win?(marker) == true
 	
+	def game_over?()
+		board.board_win?(current_player.marker) || board.full_board?()
+	end
+
+	def finish()
+		if board.board_win?(current_player.marker) 
+			puts "Winner is #{current_player.marker}"
+		else 
+			puts "No Winner--Tie"
+		end
+	end
 end
+
+#{board.current_player.marker}
