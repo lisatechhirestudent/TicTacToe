@@ -32,21 +32,41 @@ class Board
 		@ttt_board[1] == marker && @ttt_board[4] == marker && @ttt_board[7] == marker ||
 		@ttt_board[2] == marker && @ttt_board[5] == marker && @ttt_board[8] == marker 
 	end
+end
 
-	def player
-		player_1 = "x"
-		player_2 = "o"
-		current_player = player_1
-	end
+	def input?(user_input)
 
-	def changed_player(current_player)
-		if current_player == player_1
-		current_player = player_2
-		elsif current_player == player_2
-		current_player = player_1
+		if user_input =~ /^-?[0-9]+$/ && user_input.to_i < 9
+
+			true
+
+		else false
+
+		end
+
 	end
 end
-	
 
+	# def player
+	# 	player_1 = "x"
+	# 	player_2 = "o"
+	# 	current_player = player_1
+	# end
 
+	# def changed_player(current_player)
+	# 	if current_player == player_1
+	# 	current_player = player_2
+	# 	elsif current_player == player_2
+	# 	current_player = player_1
+	# 	end
+	# end
+# def input?(user_input)
 
+# 		if user_input =~ /^-?[0-9]+$/ && user_input.to_i < 9
+
+# 			true
+
+# 		else false
+# 		end
+# 	end
+# end

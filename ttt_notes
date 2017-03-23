@@ -1,0 +1,11 @@
+while(true)
+
+while(consition_to_stop)
+
+condition_to_stop = console.isthegamedone(player_1,get_marker)
+
+def is the game done(cons, marker)
+	board = cons.get_board
+	board.board_win?(marker)
+
+    #infinite loop - user ctrl c to stop it
