@@ -12,6 +12,7 @@ class Console
 	end
 
 	def display_board
+		puts "Play Game"
 		puts """        #{board.ttt_board[0]} | #{board.ttt_board[1]} | #{board.ttt_board[2]} 
 
         ______
