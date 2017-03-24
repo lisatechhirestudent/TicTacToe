@@ -19,6 +19,11 @@ game.display_board
 
  until game.game_over?
  	game.change_player
+ 	move = game.get_move
+ 	game.make_move(move)
+ 	game.display_board
+ end
+ 	game.finish
 
 
 # 	move = game.get_move
@@ -36,4 +41,4 @@ game.display_board
 #game.current_player
 
  		#puts "The winner is #{marker}"
-end 		
+		

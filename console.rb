@@ -9,7 +9,6 @@ class Console
 		@player_2 = player_2
 		@board = Board.new
 		@current_player = player_1
-
 	end
 
 	def display_board
@@ -30,6 +29,7 @@ class Console
 		current_player.get_move(board.ttt_board)
 #puts "Who is current player? #{current_player}"
 	end
+
  	def make_move(move)
  		board.update_board(move,current_player.marker)
 	end

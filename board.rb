@@ -1,5 +1,7 @@
 class Board
+	
 	attr_accessor :ttt_board
+
 	def initialize
 		@ttt_board = Array.new(9,"")
 	end
@@ -11,6 +13,7 @@ class Board
 	def open_space?(position)
 		@ttt_board[position] == ""
 	end
+	
 	def full_board?()
 		@ttt_board.count("") == 0  
 	end
@@ -34,18 +37,18 @@ class Board
 	end
 end
 
-	def input?(user_input)
+# 	def input?(user_input)
 
-		if user_input =~ /^-?[0-9]+$/ && user_input.to_i < 9
+# 		if user_input =~ /^-?[0-9]+$/ && user_input.to_i < 9
 
-			true
+# 			true
 
-		else false
+# 		else false
 
-		end
+# 		end
 
-	end
-end
+# 	end
+# end
 
 	# def player
 	# 	player_1 = "x"
