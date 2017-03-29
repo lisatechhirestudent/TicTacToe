@@ -1,5 +1,6 @@
 require_relative "board.rb"
 require_relative "human_console.rb" 
+require_relative "sequential.rb"
 
 class Console
 	attr_accessor :player_1, :player_2, :board, :current_player

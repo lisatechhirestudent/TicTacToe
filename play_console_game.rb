@@ -1,21 +1,21 @@
-require_relative "practiceconsole.rb"
+require_relative "console.rb"
 
-game = Console.new(HumanConsole.new("x"),HumanConsole.new("o"))
+game = Console.new(SequentialConsole.new("x"),SequentialConsole.new("o"))
 
 game.display_board
-move = game.get_move 
-game.make_move(move)
-game.display_board
+# move = game.get_move 
+# game.make_move(move)
+# game.display_board
 
-game.change_player
-move = game.get_move
-game.make_move(move)
-game.display_board
-# game_board.display_board.board.tttboard
-game.change_player
-move = game.get_move
-game.make_move(move)
-game.display_board
+# game.change_player
+# move = game.get_move
+# game.make_move(move)
+# game.display_board
+# # game_board.display_board.board.tttboard
+# game.change_player
+# move = game.get_move
+# game.make_move(move)
+# game.display_board
 
  until game.game_over?
  	game.change_player

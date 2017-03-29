@@ -13,7 +13,7 @@ class Console
 
 	def display_board
 		puts "Let the game begin! Select the number to place marker in space: "
-          puts " 1 | 2 | 3 "
+          puts " 1 | 2 | 3 " 
           puts "---+---+---"
           puts " 4 | 5 | 6 "
           puts "---+---+---"

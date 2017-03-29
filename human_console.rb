@@ -1,6 +1,6 @@
 class HumanConsole
  
-	attr_accessor :marker
+	attr_reader :marker
 
 	def initialize(marker)
 		@marker = marker
