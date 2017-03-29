@@ -1,4 +1,4 @@
-require_relative "console.rb"
+require_relative "practiceconsole.rb"
 
 game = Console.new(HumanConsole.new("x"),HumanConsole.new("o"))
 
