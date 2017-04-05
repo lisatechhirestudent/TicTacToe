@@ -14,8 +14,8 @@ class Console
 	end
 
 	def display_board
-		puts "Play Game"
-		puts """        #{board.ttt_board[0]} | #{board.ttt_board[1]} | #{board.ttt_board[2]} 
+#		puts "Play Game"
+#		puts """        #{board.ttt_board[0]} | #{board.ttt_board[1]} | #{board.ttt_board[2]} 
 
         ______
 
@@ -25,7 +25,7 @@ class Console
 
         #{board.ttt_board[6]} | #{board.ttt_board[7]} | #{board.ttt_board[8]}
 
-        """
+ #       """
 	end
 
 	def get_move
@@ -51,9 +51,9 @@ class Console
 
 	def finish()
 		if board.board_win?(current_player.marker) 
-			puts "Winner is #{current_player.marker}"
+#			puts "Winner is #{current_player.marker}"
 		else 
-			puts "No Winner--Tie"
+#			puts "No Winner--Tie"
 		end
 	end
 end

@@ -1,7 +1,5 @@
 require_relative "board.rb"
 require_relative "human_console.rb" 
-require_relative "sequential.rb"
-require_relative "random.rb"
 
 class Console
 	attr_accessor :player_1, :player_2, :board, :current_player
@@ -14,7 +12,15 @@ class Console
 	end
 
 	def display_board
-		puts "Play Game"
+		puts "Let the game begin! Select the number to place marker in space: "
+          puts " 1 | 2 | 3 "
+          puts "---+---+---"
+          puts " 4 | 5 | 6 "
+          puts "---+---+---"
+          puts " 7 | 8 | 9 "
+          puts "Great!  Now, take turns with your opponent."
+
+		puts "Continue with Game"
 		puts """        #{board.ttt_board[0]} | #{board.ttt_board[1]} | #{board.ttt_board[2]} 
 
         ______

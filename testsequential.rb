@@ -20,9 +20,4 @@ class TestSequential < Minitest::Test
 		assert_equal(1,player.get_move(board))
 		
 	end
-
-
-
-
-
 end
