@@ -3,14 +3,13 @@ require_relative "board.rb"
 require_relative "webappgame.rb"
 enable :sessions
 
-board = ["","","","","","","","",""]
 
 
 get'/' do 
+board = Board.new
 
 
-
-  erb :welcomettt
+  erb :welcomettt, :locals=> {:board=>board.ttt_board}
 end
 
 post '/player_1' do
@@ -25,6 +24,9 @@ post '/player_2' do
 	session[:p1_name] = params[:p1_name]
 	session[:p2_name] = params[:p2_name]
 	session[:board] = Board.new
+	session[:player_1] = HumanConsole.new("x")
+	session[:player_2] = HumanConsole.new("o")
+	session[:current_player] = session[:player_1]
 #"#{session[:p1_name]} and #{session[:p2_name]}"
 	redirect '/gameplayroute'
 end
@@ -35,6 +37,28 @@ get '/gameplayroute' do
 end
 post '/move' do 
 	move = params[:pick].to_i
-	session[:board].update_board(move,"x")
-	redirect '/gameplayroute'
+	if  session[:board].open_space?(move)
+	    session[:board].update_board(move,session[:current_player].marker)
+	else
+		redirect '/gameplayroute'
+	end		
+	if  session[:board].board_win?(session[:current_player].marker) || session[:board].full_board?()
+		redirect '/finish'
+	else 
+		if session[:current_player] == session[:player_1]
+		   session[:current_player] = session[:player_2]
+		else
+		   session[:current_player] = session[:player_1]
+		end
+		redirect '/gameplayroute'
+	end
 end
+
+get '/finish' do
+	if session[:board].board_win?(session[:current_player].marker) 
+		erb :winner
+	else 
+		erb :tie
+	end
+end
+
