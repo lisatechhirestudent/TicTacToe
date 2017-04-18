@@ -18,21 +18,4 @@ class Console
 		     """
 	end
 
-				
-
- 
-
-
-
-
-
-						
-						
-
-
-
-
-
-		
-
 end
