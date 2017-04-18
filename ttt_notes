@@ -1,6 +1,6 @@
 while(true)
 
-while(consition_to_stop)
+while(condition_to_stop)
 
 condition_to_stop = console.isthegamedone(player_1,get_marker)
 

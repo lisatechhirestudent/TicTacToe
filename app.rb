@@ -3,6 +3,7 @@ require_relative "board.rb"
 require_relative "human_console.rb" 
 require_relative "sequential.rb"
 require_relative "random.rb"
+require_relative "unbeatable.rb"
 enable :sessions
 
 get'/' do 
@@ -26,6 +27,8 @@ post '/gamer' do
 	session[:player_2] = SequentialConsole.new("o")
     elsif game_type=="random"
 	session[:player_2] = RandomConsole.new("o")
+	elsif game_type=="random"
+	session[:player_2] = UnbeatableConsole.new("o")
 	end
 	session[:p1_name] = params[:p1_name]
 	session[:board] = Board.new
