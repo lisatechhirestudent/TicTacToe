@@ -27,7 +27,7 @@ post '/gamer' do
 	session[:player_2] = SequentialConsole.new("o")
     elsif game_type=="random"
 	session[:player_2] = RandomConsole.new("o")
-	elsif game_type=="random"
+	elsif game_type=="unbeatable"
 	session[:player_2] = UnbeatableConsole.new("o")
 	end
 	session[:p1_name] = params[:p1_name]
@@ -79,8 +79,9 @@ post '/move' do
 		session[:message] ="player_changed" 
 
 		if session[:current_player].class != HumanConsole
-			move = session[:current_player].get_move(session[:board].ttt_board)
-			session[:board].update_board(move,session[:current_player].marker)
+			position = session[:current_player].get_move(session[:board].ttt_board)
+			"#{position}"
+			session[:board].update_board(position,session[:current_player].marker)
 			if  session[:board].board_win?(session[:current_player].marker) || session[:board].full_board?()
 				redirect '/finish'
 			else 
