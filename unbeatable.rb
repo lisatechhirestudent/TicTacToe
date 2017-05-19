@@ -13,7 +13,7 @@ class UnbeatableConsole
 	def get_move(board)
 		if make_win(board) < 10
 			position = make_win(board)
-		elsif block_win(board) < 
+		elsif block_win(board) < 10
 			position = block_win(board)
 		elsif block_fork(board) < 10
 			position = block_fork(board)
@@ -36,7 +36,6 @@ class UnbeatableConsole
 				break
 			end
 		end
-		puts "Move #{position}"
 		return position
 	end
 
@@ -60,28 +59,146 @@ class UnbeatableConsole
 		move
 	end
 
+	def map_board(board)
+		board_map = [board.ttt_board[0],  board.ttt_board[1],  board.ttt_board[2]],
+		[board.ttt_board[3],  board.ttt_board[4],  board.ttt_board[5]],
+		[board.ttt_board[6],  board.ttt_board[7],  board.ttt_board[8]],
+		[board.ttt_board[0],  board.ttt_board[3],  board.ttt_board[6]],
+		[board.ttt_board[1],  board.ttt_board[4],  board.ttt_board[7]],
+		[board.ttt_board[2],  board.ttt_board[5],  board.ttt_board[8]],
+		[board.ttt_board[0],  board.ttt_board[4],  board.ttt_board[8]],
+		[board.ttt_board[2],  board.ttt_board[4],  board.ttt_board[6]]
+	end
+
 	def make_win(board)
 		move = 10
+		count = 0
 		win_array = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7],[2,5,8],[0,4,8],[2,4,6]]
-		win_array.each do |inner|
-			if inner.count("o")== 2 
-				move = 
-		["o","","o"]
-
-		#if 
-
+		board_map = map_board(board)
+		board_map.each_with_index do |inner,indx1|
+			if inner.count(self.marker) == 2 && inner.count("") == 1
+				move = win_array[indx1][inner.index("")]
+			end
+		end
+		move
 	end
 
 	def block_win(board)
 		move = 10
-		["x","x",""]
+		count = 0
+		if self.marker == "X"
+			other_marker = "O"
+		else
+			other_marker = "X"
+		end
+		win_array = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+		board_map = map_board(board)
+		board_map.each_with_index do |inner,indx1|
+			if inner.count(other_marker) == 2 && inner.count("") == 1
+				move = win_array[indx1][inner.index("")]
+			end
+		end	
+		move
 	end
 
 	def make_fork(board)
 		move = 10
+		possible_play = []
+		win_array = [[0,1,2],[3,4,5], [6,7,8], [0,3,6], [1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+		board_map = map_board(board)
+		board_map.each_with_index do |inner,indx1|
+			if inner.count(self.marker) == 1 && inner.count("") == 2
+				possible_play << win_array[indx1]
+			end
+		end
+		flat_plays = possible_play.flatten
+		flat_plays.each do |check|
+			if flat_plays.count(check) > 1
+				if board.ttt_board[check] == ""
+					move = check
+				end
+			end
+		end
+		move
 	end
 
 	def block_fork(board)
 		move = 10
+		if self.marker == "X"
+			other_marker = "O"
+		else
+			other_marker = "X"
+		end
+		possible_play = []
+		win_array = [[0,1,2],[3,4,5], [6,7,8], [0,3,6], [1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+		board_map = map_board(board)
+		board_map.each_with_index do |inner,indx1|
+			if inner.count(other_marker) == 1 && inner.count("") == 2
+				possible_play << win_array[indx1]
+			end
+		end
+		flat_plays = possible_play.flatten
+		flat_plays.each do |check|
+			if flat_plays.count(check) > 1
+				if board.ttt_board[check] == ""
+					move = check
+				end
+			end
+		end
+		move
+	end
+end	
+
+def make_fork_diagonal(board)
+		move = 10
+		if self.marker == "X"
+			other_marker = "O"
+		else
+			other_marker = "X"
+		end
+		possible_play = []
+		win_array = [[0,4,8],[2,4,6]]
+		board_map = map_board(board)
+		board_map.each_with_index do |inner,indx1|
+			if inner.count(self_marker) == 1 && inner.count("") == 2
+				possible_play << win_array[indx1]
+			end
+		end
+		flat_plays = possible_play.flatten
+		flat_plays.each do |check|
+			if flat_plays.count(check) > 1
+				if board.ttt_board[check] == ""
+					move = check
+				end
+			end
+		end
+		move
+	end
+end
+
+def block_fork_diagonal(board)
+		move = 10
+		if self.marker == "X"
+			other_marker = "O"
+		else
+			other_marker = "X"
+		end
+		possible_play = []
+		win_array = [[0,4,8],[2,4,6]]
+		board_map = map_board(board)
+		board_map.each_with_index do |inner,indx1|
+			if inner.count(other_marker) == 1 && inner.count("") == 2
+				possible_play << win_array[indx1]
+			end
+		end
+		flat_plays = possible_play.flatten
+		flat_plays.each do |check|
+			if flat_plays.count(check) > 1
+				if board.ttt_board[check] == ""
+					move = check
+				end
+			end
+		end
+		move
 	end
 end	
