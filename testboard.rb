@@ -1,5 +1,8 @@
 require "minitest/autorun"
-require_relative "board.rb"
+requirerd = Board.new
+		board.update_board(0,"x")
+		assert_equal(["x","","","","","","","",""],board.ttt_board)
+	end_relative "board.rb"
 
 class TestBoard < Minitest::Test
 
@@ -9,10 +12,7 @@ class TestBoard < Minitest::Test
 	end
 
 	def test_update_with_x_first_position
-		board = Board.new
-		board.update_board(0,"x")
-		assert_equal(["x","","","","","","","",""],board.ttt_board)
-	end
+		boa
 
 	def test_update_board
 		board = Board.new
