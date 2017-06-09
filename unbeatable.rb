@@ -1,6 +1,5 @@
 class UnbeatableConsole
 
-	#attr_reader :corners, :sides, :center
 	attr_reader :corners, :sides, :center, :opposite_corners
 	attr_accessor :marker
 
@@ -22,13 +21,13 @@ class UnbeatableConsole
 		elsif make_fork(board) < 10
 			position = make_fork(board)
 		elsif find_open_center(board) < 10
-			position = find_open_center(board)
-		elsif find_open_sides(board) < 10
-			position = find_open_sides(board)			
+			position = find_open_center(board)		
 		elsif find_open_corner(board) < 10
 			position = find_open_corner(board)
 		elsif find_opposite_corners(board) < 10
 			position = find_opposite_corners(board)
+		elsif find_open_sides(board) < 10
+			position = find_open_sides(board)
 		end
 	end
 
@@ -37,7 +36,6 @@ class UnbeatableConsole
 		corners.each do |indx|
 			if board[indx] == ""
 				position = indx
-				break
 			end
 		end
 		return position
@@ -139,9 +137,9 @@ class UnbeatableConsole
 		board_map = map_board(board)
 
 		count_corner = 0
-		opposite_corners.each do |check| [[0,8],[2,6,]]
+		opposite_corners.each do |check|
 			check.each do |indx|
-				if board[indx] == other_marker
+				if board[indx] == other_marker	
 					count_corner += 1
 				end
 				if count_corner == 2

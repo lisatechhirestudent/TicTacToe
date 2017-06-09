@@ -22,17 +22,17 @@ end
 post '/gamer' do
 	game_type=params[:game_type]
 	if game_type=="human"
-		session[:player_2] = HumanConsole.new("o")
+		session[:player_2] = HumanConsole.new("O")
 	elsif game_type=="sequential"
-	session[:player_2] = SequentialConsole.new("o")
+	session[:player_2] = SequentialConsole.new("O")
     elsif game_type=="random"
-	session[:player_2] = RandomConsole.new("o")
+	session[:player_2] = RandomConsole.new("O")
 	elsif game_type=="unbeatable"
-	session[:player_2] = UnbeatableConsole.new("o")
+	session[:player_2] = UnbeatableConsole.new("O")
 	end
 	session[:p1_name] = params[:p1_name]
 	session[:board] = Board.new
-	session[:player_1] = HumanConsole.new("x")
+	session[:player_1] = HumanConsole.new("X")
 	
 	session[:current_player] = session[:player_1]
 #"#{session[:p1_name]} and #{session[:p2_name]}"
@@ -43,10 +43,10 @@ post '/gamer' do
 end
 post '/player_2' do
 	session[:p1_name] = params[:p1_name]
-	session[:player_2] = SequentialConsole.new("o")
+	session[:player_2] = SequentialConsole.new("O")
 	p2_name = params[:p2_name]
 	session[:board] = Board.new
-	session[:player_1] = HumanConsole.new("x")
+	session[:player_1] = HumanConsole.new("X")
 	
 	session[:current_player] = session[:player_1]
 #"#{session[:p1_name]} and #{session[:p2_name]}"
