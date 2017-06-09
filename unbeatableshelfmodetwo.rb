@@ -13,24 +13,24 @@ class UnbeatableConsole
 	end
 
 	def get_move(board)
-		if make_win(board) < 10
-			position = make_win(board)
-		elsif block_win(board) < 10
-			position = block_win(board)
-		elsif block_fork(board) < 10
-			position = block_fork(board)
-		elsif make_fork(board) < 10
-			position = make_fork(board)
-		elsif find_open_center(board) < 10
-			position = find_open_center(board)
-		elsif find_open_sides(board) < 10
-			position = find_open_sides(board)			
-		elsif find_open_corner(board) < 10
-			position = find_open_corner(board)
-		elsif find_opposite_corners(board) < 10
-			position = find_opposite_corners(board)
-		end
-	end
+		position = make_win(board)
+ 		elsif block_win(board) < 10 
+ 			position = block_win(board) 
+		elsif block_fork(board) < 10 
+			position = block_fork(board) 
+ 		elsif make_fork(board) < 10 
+ 			position = make_fork(board) 
+		elsif find_open_corner(board) < 10 
+			position = find_open_corner(board) 
+		elsif block_fork(board) < 10 
+			position = block_fork(board) 
+ 		elsif find_open_center(board) < 10 
+ 			position = find_open_center(board) 
+		elsif find_open_corner(board) < 10 
+			position = find_open_corner(board) 
+		elsif find_open_sides(board) < 10 
+ 			position = find_open_sides 
+ 		end 
 
 	def find_open_corner(board)
 		position = 10
@@ -139,7 +139,7 @@ class UnbeatableConsole
 		board_map = map_board(board)
 
 		count_corner = 0
-		opposite_corners.each do |check| [[0,8],[2,6,]]
+		opposite_corners.each do |check| #[[0,8],[2,6,]]
 			check.each do |indx|
 				if board[indx] == other_marker
 					count_corner += 1

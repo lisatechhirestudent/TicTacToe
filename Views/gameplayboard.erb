@@ -1,4 +1,4 @@
-<table> 
+<center><table> 
 	<tr>
   	  <td id='position_1'><%=board[0]%></td>
 	  <td id='position_2'><%=board[1]%></td>
@@ -14,7 +14,8 @@
 	  <td id='position_8'><%=board[7]%></td>
 	  <td id='position_9'><%=board[8]%></td>
  	</tr>
-</table>
+</table></center>
+<center>
 <%= session[:message]%>
 pick a space
 <form method = "post" action = "move">
@@ -31,3 +32,4 @@ pick a space
 </select>
 <input type = "submit">
 </form>
+</center>
